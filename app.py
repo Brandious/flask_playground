@@ -1,14 +1,21 @@
-from flask import Flask
+from flask import render_template
+from .init_data import add_initial_items
+from .__init__ import create_app
+from .item import db, Item
 
-app = Flask(__name__)
 
-style = "height:100vh; display: flex; justify-content: center; align-items: center"
-
+app = create_app()
 
 @app.route("/")
-def hello_world():
-    return f'<h1 style="{style}">Hello world, with debugger!<h1>'
+@app.route("/home")
+def home_page():
+    return render_template("home.html")
 
-@app.route("/about/<username>")
-def about_page(username):
-    return f'<h1 style="{style}">About {username}!<h1>'
+@app.route("/market")
+def market_page():
+    items = Item.query.all()
+    return render_template("market.html", items=items)
+
+@app.route('/init-db')
+def init_db():
+   return add_initial_items(app)

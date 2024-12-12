@@ -1,6 +1,5 @@
-
-from .__init__ import create_app
-from .item import db, Item
+from market.models import db
+from market.models import Item
 
 
 def add_initial_items(app):

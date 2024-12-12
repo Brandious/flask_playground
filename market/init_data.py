@@ -1,7 +1,6 @@
 from market.models import db
 from market.models import Item
 
-
 def add_initial_items(app):
     with app.app_context():
         # Drop all existing items

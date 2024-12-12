@@ -2,10 +2,8 @@ from flask import Blueprint
 from flask import render_template
 from market.models import Item
 
-
 # Create a Blueprint for routes
 main = Blueprint('main', __name__)
-
 
 @main.route('/')
 @main.route('/home')

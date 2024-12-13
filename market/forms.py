@@ -33,11 +33,18 @@ class LoginForm(FlaskForm):
 
     def validate_username(self, username_to_check):
         user = User.query.filter_by(username=username_to_check.data).first()
-        if user:
+        if user is None:
             raise ValidationError("Username not found!")
 
     username = StringField(label="username", validators=[DataRequired()])
-
     password = PasswordField(label="password", validators=[DataRequired()])
 
     submit = SubmitField(label="submit")
+
+
+class PurchaseItemForm(FlaskForm):
+    submit = SubmitField(label="Purchase Item!")
+
+
+class SellItemForm(FlaskForm):
+    submit = SubmitField(label="Sell Item!")

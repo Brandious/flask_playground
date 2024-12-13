@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+  Login
+{% endblock %}
+
+{% block content %}
+  <div>
+    <div class="container">
+      <form method="POST" class="form-signin" style="color:white">
+        {{ form.hidden_tag() }}
+        <div class="text-center">
+          <img class="mb-4" src="https://gravatar.com/avatar/4970daa224d2563ed9424feea6934ba4?s=200&d=robohash&r=x" alt="" />
+          <h3 class="h3 mb-3 font-weight-normal flex-1">Please login to your Account</h3>
+        </div>
+        <br />
+        {{ form.username.label(class='text-uppercase') }}
+        {{ form.username(class='form-control', placeholder='User Name') }}
+
+        {{ form.password.label(class='text-uppercase') }}
+        {{ form.password(class='form-control', placeholder='Password') }}
+
+        <br />
+
+        <div class="text-center">{{ form.submit(class='btn btn-lg btn-md btn-primary') }}</div>
+      </form>
+    </div>
+  </div>
+{% endblock %}
